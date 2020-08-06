@@ -1,0 +1,16 @@
+<header>
+
+<a href="./"><img src="../assets/Images/food.jpg" alt = 'connections' width= '300' height= '120'></a>
+<h1>Food Festival</h1>
+<div class="topnav-right"><br>
+
+<a href="/newConnection">Start a New Connection</a>&nbsp; &nbsp;
+<% if(isLoggedIn) {%>
+    <a href="/profile/savedconnections">MyConnections</a>&nbsp; &nbsp;
+    <a href="/profile/signout">Sign Out</a>&nbsp; &nbsp;
+<% }else { %>
+    <a href="/login">Login</a>&nbsp; &nbsp;
+    <a href="/profile/savedconnections">Sign Up</a>&nbsp; &nbsp;
+ <% } %>   
+</div>
+</header>

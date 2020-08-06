@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Connections</title>
+  <link rel="stylesheet" type="text/css" href="../assets/style.css">
+</head>
+
+<body>
+  <% include partials/header.ejs %>
+  <% include partials/navigation.ejs %>
+<main>
+  <section>
+    <div class="body">
+          <div class="body"></div>
+          <% categoryName.forEach(function(cat){ %>
+            <div class="heading"><%= cat %></div>
+              <% data.forEach(function(connection){
+                      if(cat == connection.categoryName){ %>
+                        <div class="section"><strong><u><a href="/connection/<%=connection.foodId %>"><%= connection.foodName %></a></u></strong></div><br>
+                  <%}
+        
+               });     
+           }); %>
+    </div>
+    </section>
+
+</main>
+<% include partials/footer.ejs %>
+
+</body>
+</html>

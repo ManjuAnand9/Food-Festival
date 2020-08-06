@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>	Index</title>
+  <link rel="stylesheet" type="text/css" href="../assets/style.css">
+</head>
+
+<body>
+  <% include partials/header.ejs %>
+  <% include partials/navigation.ejs %>
+
+
+<main>
+
+
+  <form action="/newConnection" method="POST" id="connectionform">
+    <div class="form-group">
+        <% errrs.forEach(error => { %> 
+          <p class="loginerrmessage"><%= "Error at "+error.param +": "+error.msg %></p>
+        <% }) %>
+      <label for="topic">Category:</label>
+      <select  class="form-control" id="category" placeholder="Enter topic" name="category">
+        <option value="Italian Food">Italian Food</option>
+        <option value="Indian Food">Indian Food</option>
+      </select>
+    </div>
+    Name:
+    <input type="text" name="Name"><br><br><br>
+    Details :
+    <textarea form="connectionform" name="details"> Enter description here..</textarea><br><br><br>
+    Where:
+    <input type="text" name="Where"><br><br><br>
+    When :
+    <input type="Date" name="When" type="date"><br><br><br>
+    <input type="submit" value="Create Connection"><br><br><br>
+  </form>
+</main>
+
+<% include partials/footer.ejs %>
+
+</body>
+</html>

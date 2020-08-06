@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ConnectionDetail</title>
+  <link rel="stylesheet" type="text/css" href="../assets/style.css">
+</head>
+
+<body>
+<% include partials/header.ejs %>
+<% include partials/navigation.ejs %>
+
+<main>
+<div class="column left">
+<a href="connectiondetail1.html"><img src="<%= result._imageURL %>" alt="top" width= '250' height= '300'></a>
+</div>
+<div class = "column left">
+  <div class="sub-container2">
+    <h3><%= result[0].foodName %></h3>
+    <p>Description: <%= result[0].details %></p>
+    <p >Date and Time: <%= result[0].dateTime %></p>
+    <p>Venue: <%= result[0].location %></p>
+  </div>
+</div>
+
+
+
+<div class="column right">
+  <div class="container4 ">
+    <p>Are You Interested? 200 more people are in.</p>
+    <% let common = "/profile/savedConnections?action=save&foodId="+result[0].foodId %>
+    <form method="post">
+      <button type="submit" formaction="<%= common %>&rsvp=Yes" class="btn Yes">Yes</button>
+      <input type="hidden" name="foodName" value="<%= result[0].foodName %>">
+      <input type="hidden" name="categoryName" value="<%= result[0].categoryName %>">
+      <button type="submit" formaction="<%= common %>&rsvp=No" class="btn No">No</button>
+      <button type="submit" formaction="<%= common %>&rsvp=Maybe" class="btn Maybe">Maybe</button>
+    </form>
+</div>
+</div>
+</main>
+<% include partials/footer.ejs %>
+
+</body>
+</html>

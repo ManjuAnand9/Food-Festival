@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SavedConnections</title>
+  <link rel="stylesheet" type="text/css" href="../assets/style.css">
+</head>
+
+<body>
+  <% include partials/header.ejs %>
+  <% include partials/navigation.ejs %>
+
+
+
+<main>
+
+<table class="table2">
+  <tr>
+    <th>Items</th>
+    <th>Category</th>
+    <th>Interested?</th>
+    <th></th>
+  </tr>
+  
+  <% userConnectionList.forEach(userConnection => {%>
+
+    <tr>
+      <td><%= userConnection.foodName %></td>
+      <td><%= userConnection.categoryName %></td>
+      <td><%= userConnection.rsvp %></td>
+      <td class="updatedelete">
+        <form method="post" action="/profile/savedConnections?action=updateProfile&foodId=<%= userConnection.foodId %>">
+          <input type="hidden" name="viewConnections" value="<%= userConnectionList.map( userConnection =>{return userConnection.foodId}) %>">
+          <button type="submit" class="btn Update">Update</button>
+        </form>
+        <form method="post" action="/profile/savedConnections?action=delete&foodId=<%= userConnection.foodId %>">
+          <input type="hidden" name="viewConnections" value="<%= userConnectionList.map( userConnection =>{return userConnection.foodId}) %>">
+          <button type="submit" class="btn Delete">Delete</button>
+        </form>
+      </td>
+    </tr>
+  <% }) %>
+</table>     
+  
+</main>
+
+<% include partials/footer.ejs %>
+
+</body>
+</html>

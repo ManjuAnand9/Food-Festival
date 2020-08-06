@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>	Index</title>
+  <link rel="stylesheet" type="text/css" href="../assets/style.css">
+</head>
+
+<body>
+  <% include partials/header.ejs %>
+  <% include partials/navigation.ejs %>
+
+
+<main>
+
+        <% if(errrs){ 
+            errrs.forEach(error =>{ %>
+              <p class="loginerrmessage"><%= error.msg %></p>
+        <% })} %>
+       <form action="/login?action=signIn" method="POST">
+          <div class="username">
+              <label for="uname"><b>Username :</b></label>
+              <input type="text" class="form-control" placeholder="Enter Username" name="username" required>
+          </div>
+          <div class="password">
+              <label for="psw"><b>Password :</b></label>
+              <input type="password" class="form-control" placeholder="Enter Password" name="password" required>  
+          </div>
+          <button type="submit" class="loginbutton">Login</button>
+    </form>
+</main>
+
+<% include partials/footer.ejs %>
+
+</body>
+</html>
